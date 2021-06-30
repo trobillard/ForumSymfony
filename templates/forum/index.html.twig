@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony Forum!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Welcome to Symfony Forum for beginner</h1>
+    <h2>Last Subjects:</h2>
+    {% for subject in subjects %}
+    <div class="card" style="width: 20rem;">
+  {# <img src="..." class="card-img-top" alt="..."> #}
+  <div class="card-body">
+    <div class="card-header">Published the {{subject.published|date('d/m/Y')}} at {{subject.published|date('H:i')}}</div>
+    <h4 class="card-title">{{subject.title}}</h4>
+    <p class="card-text">{{subject.content}}</p>
+    <a href="{{path('single', {id: subject.id})}}" class="btn text-white">
+    {#{id: subject.id} me permet d aller sur l ID du sujet sur lequel on a clique  #}
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    See the Subject</a>
+  </div>
+</div>
+        <p></p>
+    {% endfor %}
+    <h2>For Support:</h2>
+    <ul>
+        <li><a href="https://github.com/trobillard" target="_blank">Our Github</a></li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony Forum!{% endblock %}
+
+{% block body %}
+
+    <h1>{{subject.title}}</h1>
+    <p>{{subject.published|date('d/m/Y')}} at {{subject.published|date('H:i')}}</p>
+<div id="rules">
+    <p>{{subject.content}}</p>
+    
+</div>
+{% endblock %}
