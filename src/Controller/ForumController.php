@@ -9,8 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Subject;
 use App\Form\SubjectType;
 use App\Repository\SubjectRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-
+ /**
+  * @IsGranted("IS_AUTHENTICATED_FULLY")
+  */
+//   permet de dire que si on n est pas login on ne peut pas acceder au site
 class ForumController extends AbstractController
 {
     #[Route('/forum', name: 'forum')]
@@ -67,7 +71,7 @@ class ForumController extends AbstractController
 
     #[Route('/forum/subject/{id}', name: 'single', requirements: ["id"=>"\d+"])]
     // "\d+" regex pour dire id d+
-    public function single(int $id=3, SubjectRepository $subjectRepository): Response
+    public function single(int $id=1, SubjectRepository $subjectRepository): Response
     // $id=1 est fait pour avoir un parametre par defaut et afficher le post id=1 
     // SubjectRepository $subjectRepository (injection de service) possible seulement car on a charger la classe dans le controller
     {

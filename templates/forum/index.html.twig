@@ -15,7 +15,7 @@
     <div class="card" style="width: 20rem;">
   {# <img src="..." class="card-img-top" alt="..."> #}
   <div class="card-body">
-    <div class="card-header">Published the {{subject.published|date('d/m/Y')}} at {{subject.published|date('H:i')}}</div>
+    <div class="card-header"><p>Published the {{subject.published|date('d/m/Y')}} at {{subject.published|date('H:i')}}</p></div>
     <h4 class="card-title">{{subject.title}}</h4>
     <p class="card-text">{{subject.content}}</p>
     <a href="{{path('single', {id: subject.id})}}" class="btn text-white">
